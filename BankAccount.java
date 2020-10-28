@@ -7,7 +7,7 @@ public class BankAccount {
   //constructor
   public BankAccount(int ID, String pass) {
     //initialize
-    balance = 0;
+    balance = 0.0;
     accountID = ID;
     password = pass;
   }
@@ -22,10 +22,10 @@ public class BankAccount {
     return accountID;
   }
 
-  //method: access password of account
-  public String getPassword() {
-    return password;
-  }
+  // //method: access password of account
+  // public String getPassword() {
+  //   return password;
+  // }
 
   //method: change value of password to new specified value
   public void setPassword(String newPass) {
@@ -41,6 +41,7 @@ public class BankAccount {
     }
   }
 
+  //method: withdraw money from account
   public boolean withdraw(double amount) {
     if (amount > balance || amount < 0) return false;
     else {
@@ -49,5 +50,8 @@ public class BankAccount {
     }
   }
 
-
+  //method: shows accountID and balance in format: "ID\tBALANCE"
+  public String toString() {
+    return accountID + "\t" + balance;
+  }
 }
