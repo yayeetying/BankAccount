@@ -18,6 +18,12 @@ public class BankAccountTester {
 
     System.out.println(Pewpew.getPassword());
     System.out.println(Pewpew.getBalance());
+    System.out.println(Pewpew.deposit(2147823.23));
+    System.out.println(Pewpew.withdraw(9999999));
+    System.out.println(Pewpew.withdraw(-1231784.23));
+    System.out.println(Pewpew.withdraw(0.23));
+    System.out.println(Pewpew.getBalance());
+
   }
 
 }
