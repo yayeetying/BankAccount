@@ -1,13 +1,23 @@
 public class BankAccountTester {
 
   public static void main(String[] args) {
-    //initialize object b1 of class BankAccount
-    BankAccount b1 = new BankAccount(57, "blobfish");
-    System.out.println(b1.getBalance());
-    System.out.println(b1.getAccountID());
-    System.out.println(b1.getPassword());
-    b1.setPassword("donkey");
-    System.out.println(b1.getPassword());
+    //initialize object Yaoming of class BankAccount
+    BankAccount Yaoming = new BankAccount(0, "blobfis@h");
+    BankAccount Hoshi = new BankAccount(2348123, "Seventeen");
+    BankAccount Pewpew = new BankAccount(1245, " ");
+
+    System.out.println(Yaoming.getBalance());
+    System.out.println(Yaoming.getAccountID());
+    System.out.println(Yaoming.getPassword());
+    Yaoming.setPassword("donkey");
+    System.out.println(Yaoming.getPassword());
+    Yaoming.deposit(53.43);
+    System.out.println(Yaoming.getBalance());
+    if ( Yaoming.deposit(-100) ) System.out.println("Deposit successful!");
+    else {System.out.println("Deposit failed!");}
+
+    System.out.println(Pewpew.getPassword());
+    System.out.println(Pewpew.getBalance());
   }
 
 }
