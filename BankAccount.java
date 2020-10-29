@@ -52,14 +52,39 @@ public class BankAccount {
     }
   }
 
-  //method: shows accountID and balance in format: "ID\tBALANCE"
+  //method: shows accountID and balance in format: "#ID\t$BALANCE"
   public String toString() {
     return "#" + accountID + "\t" + "$" + balance;
   }
 
+  //PRIVATE method will allow internal methods to check password easily
   private boolean authenticate(String password) {
     return this.password.equals(password);
   }
 
-  // public boolean transferTo(Bank)
+  //when password matches & withdrawal succeeds, transfer money from
+  //this BankAccount to other BankAccount
+  public boolean transferTo(BankAccount other, double amount, String password) {
+    //short circuiting! if authenticate returns false, java won't look
+    //at the boolean statements afterwards (so no need to nest so many ifs)
+    if ( authenticate(password) && withdraw(amount) ) {
+      //other.deposit(amount); return true;
+      //also works, but here, we're accounting for if below error happens
+      if ( other.deposit(amount) ) {
+        return true;
+      }
+      //keep in mind that this else (you failed to deposit said amount)
+      //should NEVER happen; if you can withdraw the amount, but not
+      //deposit it, where did the money go?
+      else {
+        System.out.println("YUH-OH! RED LIGHT! EMERGENCY MEETING!");
+        System.out.println(amount + "withdrawn from Account #"
+                          + getAccountID() +
+                          "; Failed to deposit to Account #"
+                          + other.getAccountID());
+      }
+    }
+    return false;
+  }
+
 }

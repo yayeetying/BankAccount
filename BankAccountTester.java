@@ -29,7 +29,18 @@ public class BankAccountTester {
     System.out.println(Hoshi.toString());
     System.out.println(Yaoming.toString());
     System.out.println(Pewpew.toString());
+    System.out.println();
 
+    BankAccount Sophia = new BankAccount(123456, "meowmeow");
+    BankAccount Funky = new BankAccount(7890, "woofwoof");
+    Sophia.deposit(7500);
+    System.out.println(Sophia.getBalance());
+    System.out.println(Funky.getBalance());
+    System.out.println(Sophia.transferTo(Funky, 500, "meowmeow")); //should be true
+    System.out.println(Funky.transferTo(Sophia, 1000, "woofwoof")); //should be false
+    System.out.println(Funky.transferTo(Sophia, 300, "hehehe")); //should be false
+    System.out.println(Sophia.getBalance()); //should be 7000.0
+    System.out.println(Funky.getBalance()); //should be 500.0
 
   }
 
