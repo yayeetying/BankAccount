@@ -9,6 +9,8 @@ public class BankAccount {
     //initialize
     balance = 0.0;
     accountID = ID;
+    //if parameter name was accountID (var same name as parameter), you'd do
+    //this.accountID = accountID;
     password = pass;
   }
 
@@ -52,6 +54,12 @@ public class BankAccount {
 
   //method: shows accountID and balance in format: "ID\tBALANCE"
   public String toString() {
-    return accountID + "\t" + balance;
+    return "#" + accountID + "\t" + "$" + balance;
   }
+
+  private boolean authenticate(String password) {
+    return this.password.equals(password);
+  }
+
+  // public boolean transferTo(Bank)
 }
